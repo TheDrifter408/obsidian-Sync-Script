@@ -26,7 +26,7 @@ while true; do
   git pull --rebase origin main 2>/dev/null || git pull --rebase origin master 2>/dev/null || true
 
   # Check for changes
-  if ! git diff --quiet || ! git diff --cachec --quiet; then
+  if ! git diff --quiet || ! git diff --cached --quiet; then
     echo "-> Changes detected, committing..."
     git add -A
     git commit -m "Auto sync: $(date '+%Y-%m-%d %H:%M:%S')" || true
